@@ -3,10 +3,11 @@ import Menu from '@/components/Menu';
 
 export default function Home() {
   return (
-    <main className="bg-black min-h-screen">
+    <div className="flex">
       <Header />
-      <div className="h-24" /> {/* Header için boşluk */}
-      <Menu />
-    </main>
+      <main className="flex-1 ml-64 bg-black min-h-screen">
+        <Menu />
+      </main>
+    </div>
   );
 }
