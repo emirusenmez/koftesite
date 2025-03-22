@@ -10,7 +10,7 @@ interface MenuItem {
   price: string;
 }
 
-const menuItems: MenuItem[] = [
+const izgaraItems: MenuItem[] = [
   {
     title: 'KÖFTE',
     image: '/images/kofte.jpg',
@@ -32,6 +32,9 @@ const menuItems: MenuItem[] = [
     weight: '200g',
     price: '350₺',
   },
+];
+
+const kebapItems: MenuItem[] = [
   {
     title: 'KUZU CİĞER',
     image: '/images/kuzu-ciger.jpg',
@@ -55,11 +58,35 @@ const menuItems: MenuItem[] = [
   },
 ];
 
-export default function Menu() {
+const corbaItems: MenuItem[] = [
+  {
+    title: 'MERCİMEK ÇORBASI',
+    image: '/images/mercimek.jpg',
+    description: 'AÇIKLAMA',
+    weight: '300ml',
+    price: '80₺',
+  },
+  {
+    title: 'PAÇA ÇORBASI',
+    image: '/images/paca.jpg',
+    description: 'AÇIKLAMA',
+    weight: '300ml',
+    price: '100₺',
+  },
+];
+
+interface MenuSectionProps {
+  title: string;
+  items: MenuItem[];
+  id: string;
+}
+
+function MenuSection({ title, items, id }: MenuSectionProps) {
   return (
-    <section id="grills" className="bg-black text-white py-20 px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-16 flex justify-center">
+    <section id={id} className="py-20">
+      <div className="max-w-7xl mx-auto px-8">
+        <h2 className="text-5xl font-serif text-center text-yellow-500 mb-16">{title}</h2>
+        <div className="mb-8 flex justify-center">
           <div className="w-16">
             <Image
               src="/images/leaf-decoration.png"
@@ -72,7 +99,7 @@ export default function Menu() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
-          {menuItems.map((item, index) => (
+          {items.map((item, index) => (
             <div key={index} className="text-center">
               <div className="relative aspect-[4/3] mb-4">
                 <Image
@@ -91,5 +118,15 @@ export default function Menu() {
         </div>
       </div>
     </section>
+  );
+}
+
+export default function Menu() {
+  return (
+    <div className="bg-black text-white">
+      <MenuSection title="IZGARALAR" items={izgaraItems} id="grills" />
+      <MenuSection title="KEBAPLAR" items={kebapItems} id="kebabs" />
+      <MenuSection title="ÇORBALAR" items={corbaItems} id="soups" />
+    </div>
   );
 } 

@@ -6,12 +6,27 @@ import { useState } from 'react';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 0;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    setIsMenuOpen(false);
+  };
+
   const menuItems = [
     { name: 'Menü', href: '#menu' },
     { name: 'Izgaralar', href: '#grills' },
     { name: 'Kebaplar', href: '#kebabs' },
+    { name: 'Çorbalar', href: '#soups' },
     { name: 'Ekmek Arası', href: '#sandwiches' },
-    { name: 'Salata ve Çorba', href: '#soups' },
     { name: 'Paket Servis', href: '#delivery' },
   ];
 
@@ -20,7 +35,7 @@ export default function Header() {
       <div className="flex flex-col h-full">
         {/* Logo */}
         <div className="p-6 border-b border-yellow-500/20">
-          <Link href="/" className="block">
+          <button onClick={() => scrollToSection('menu')} className="block">
             <span className="text-2xl font-bold text-yellow-500 font-serif leading-tight block">
               Mihrimah
               <br />
@@ -28,19 +43,19 @@ export default function Header() {
               <br />
               Köftecisi
             </span>
-          </Link>
+          </button>
         </div>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex flex-col p-6 space-y-6 flex-grow">
           {menuItems.map((item) => (
-            <Link
+            <button
               key={item.name}
-              href={item.href}
-              className="text-white hover:text-yellow-500 transition-colors text-lg font-medium"
+              onClick={() => scrollToSection(item.href.substring(1))}
+              className="text-white hover:text-yellow-500 transition-colors text-lg font-medium text-left"
             >
               {item.name}
-            </Link>
+            </button>
           ))}
         </nav>
 
@@ -71,14 +86,13 @@ export default function Header() {
           <div className="md:hidden absolute top-20 left-0 right-0 bg-black bg-opacity-95">
             <div className="px-6 py-4 space-y-4">
               {menuItems.map((item) => (
-                <Link
+                <button
                   key={item.name}
-                  href={item.href}
-                  className="block text-white hover:text-yellow-500 transition-colors text-lg"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => scrollToSection(item.href.substring(1))}
+                  className="block text-white hover:text-yellow-500 transition-colors text-lg w-full text-left"
                 >
                   {item.name}
-                </Link>
+                </button>
               ))}
             </div>
           </div>
