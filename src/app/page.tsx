@@ -1,11 +1,12 @@
 import Header from '@/components/Header';
-import Hero from '@/components/Hero';
+import Menu from '@/components/Menu';
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-black min-h-screen">
       <Header />
-      <Hero />
+      <div className="h-24" /> {/* Header için boşluk */}
+      <Menu />
     </main>
   );
 }

@@ -7,19 +7,19 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { name: 'Ana Sayfa', href: '/' },
-    { name: 'Hakkımızda', href: '#about' },
-    { name: 'Menü', href: '#menu' },
-    { name: 'Şubeler', href: '#branches' },
-    { name: 'İletişim', href: '#contact' },
+    { name: 'MENÜ', href: '#menu' },
+    { name: 'IZGARALAR', href: '#grills' },
+    { name: 'EKMEK ARALARI', href: '#sandwiches' },
+    { name: 'İÇECEK & TATLI', href: '#drinks' },
+    { name: 'GEL AL PAKET SERVİS', href: '#takeaway' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+    <header className="fixed top-0 left-0 right-0 bg-black bg-opacity-90 z-50">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           <Link href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-red-600">Köfteci</span>
+            <span className="text-3xl font-bold text-yellow-500 font-serif">Mihrimah Sultan Köftecisi</span>
           </Link>
 
           {/* Desktop Menu */}
@@ -28,7 +28,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-red-600 transition-colors"
+                className="text-white hover:text-yellow-500 transition-colors text-lg font-medium"
               >
                 {item.name}
               </Link>
@@ -37,7 +37,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden"
+            className="md:hidden text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <svg
@@ -60,13 +60,13 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="md:hidden bg-black bg-opacity-95">
+            <div className="px-2 pt-2 pb-3 space-y-1">
               {menuItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block px-3 py-2 text-gray-700 hover:text-red-600 transition-colors"
+                  className="block px-3 py-2 text-white hover:text-yellow-500 transition-colors text-lg"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
