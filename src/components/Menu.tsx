@@ -13,21 +13,21 @@ interface MenuItem {
 const izgaraItems: MenuItem[] = [
   {
     title: 'KÖFTE',
-    image: '/images/kofte.jpg',
+    image: '/images/kofte.png',
     description: 'AÇIKLAMA',
     weight: '180g',
     price: '350₺',
   },
   {
     title: 'KUZU YÜREK',
-    image: '/images/kuzu-yurek.jpg',
+    image: '/images/kuzuyurek.png',
     description: 'AÇIKLAMA',
     weight: '200g',
     price: '350₺',
   },
   {
     title: 'KUZU BÖBREK',
-    image: '/images/kuzu-bobrek.jpg',
+    image: '/images/kuzubobrek.png',
     description: 'AÇIKLAMA',
     weight: '200g',
     price: '350₺',
@@ -37,58 +37,49 @@ const izgaraItems: MenuItem[] = [
 const kebapItems: MenuItem[] = [
   {
     title: 'KUZU CİĞER',
-    image: '/images/kuzu-ciger.jpg',
+    image: '/images/kuzuciger.png',
     description: 'AÇIKLAMA',
     weight: '180g',
-    price: '400₺',
-  },
-  {
-    title: 'DANA BİFTEK',
-    image: '/images/dana-biftek.jpg',
-    description: 'AÇIKLAMA',
-    weight: '150g',
     price: '400₺',
   },
   {
     title: 'KUZU ÇÖPŞİŞ',
-    image: '/images/kuzu-copses.jpg',
+    image: '/images/kuzucopsis.png',
     description: 'AÇIKLAMA',
     weight: '180g',
     price: '400₺',
   },
 ];
 
-const durumItems: MenuItem[] = [
-  {
-    title: 'ADANA DÜRÜM',
-    image: '/images/adana-durum.jpg',
-    description: 'AÇIKLAMA',
-    weight: '200g',
-    price: '180₺',
-  },
-  // ... diğer dürüm çeşitleri
-];
-
 const ekmekArasiItems: MenuItem[] = [
   {
-    title: 'KÖFTE EKMEĞİ',
-    image: '/images/kofte-ekmek.jpg',
+    title: 'EKMEK ARASI KÖFTE',
+    image: '/images/ekmekarasikofte.png',
     description: 'AÇIKLAMA',
     weight: '150g',
     price: '160₺',
   },
-  // ... diğer ekmek arası çeşitleri
-];
-
-const salataCorbaItems: MenuItem[] = [
   {
-    title: 'MERCİMEK ÇORBASI',
-    image: '/images/mercimek.jpg',
+    title: 'EKMEK ARASI BÖBREK',
+    image: '/images/ekmekarasibobrek.png',
     description: 'AÇIKLAMA',
-    weight: '300ml',
-    price: '80₺',
+    weight: '150g',
+    price: '160₺',
   },
-  // ... diğer çorba ve salata çeşitleri
+  {
+    title: 'EKMEK ARASI ÇÖPŞİŞ',
+    image: '/images/ekmekarasicopsis.png',
+    description: 'AÇIKLAMA',
+    weight: '150g',
+    price: '160₺',
+  },
+  {
+    title: 'EKMEK ARASI CİĞER',
+    image: '/images/ekmekarasikuzuciger.png',
+    description: 'AÇIKLAMA',
+    weight: '150g',
+    price: '160₺',
+  },
 ];
 
 interface MenuSectionProps {
@@ -142,9 +133,7 @@ export default function Menu() {
     <div className="bg-black text-white">
       <MenuSection title="IZGARALAR" items={izgaraItems} id="grills" />
       <MenuSection title="KEBAPLAR" items={kebapItems} id="kebabs" />
-      <MenuSection title="DÜRÜMLER" items={durumItems} id="wraps" />
       <MenuSection title="EKMEK ARASI" items={ekmekArasiItems} id="sandwiches" />
-      <MenuSection title="SALATA VE ÇORBALAR" items={salataCorbaItems} id="soups" />
     </div>
   );
 } 
