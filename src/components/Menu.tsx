@@ -84,7 +84,7 @@ interface MenuSectionProps {
 function MenuSection({ title, items, id }: MenuSectionProps) {
   return (
     <section id={id} className="py-20">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-5xl font-serif text-center text-yellow-500 mb-16">{title}</h2>
         <div className="mb-8 flex justify-center">
           <div className="w-16">
@@ -98,7 +98,7 @@ function MenuSection({ title, items, id }: MenuSectionProps) {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {items.map((item, index) => (
             <div key={index} className="text-center">
               <div className="relative aspect-[4/3] mb-4">

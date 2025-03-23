@@ -31,17 +31,20 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 h-full bg-black bg-opacity-90 z-50 w-64">
-      <div className="flex flex-col h-full">
+    <header className="fixed md:left-0 top-0 w-full md:w-64 md:h-full bg-black bg-opacity-90 z-50">
+      <div className="flex md:flex-col h-full">
         {/* Logo */}
-        <div className="p-6 border-b border-yellow-500/20">
+        <div className="p-4 md:p-6 border-r md:border-r-0 md:border-b border-yellow-500/20">
           <button onClick={() => scrollToSection('menu')} className="block">
-            <span className="text-2xl font-bold text-yellow-500 font-serif leading-tight block">
-              Mihrimah
-              <br />
-              Sultan
-              <br />
-              Köftecisi
+            <span className="text-xl md:text-2xl font-bold text-yellow-500 font-serif leading-tight block">
+              <span className="md:hidden">Mihrimah Sultan Köftecisi</span>
+              <span className="hidden md:block">
+                Mihrimah
+                <br />
+                Sultan
+                <br />
+                Köftecisi
+              </span>
             </span>
           </button>
         </div>
@@ -61,11 +64,11 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden absolute top-6 right-4 text-white"
+          className="md:hidden p-4"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <svg
-            className="w-6 h-6"
+            className="w-6 h-6 text-white"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -83,7 +86,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-20 left-0 right-0 bg-black bg-opacity-95">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-black bg-opacity-95">
             <div className="px-6 py-4 space-y-4">
               {menuItems.map((item) => (
                 <button
