@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Header() {
@@ -22,12 +21,12 @@ export default function Header() {
   };
 
   const menuItems = [
-    { name: 'Menü', href: '#menu' },
     { name: 'Izgaralar', href: '#grills' },
     { name: 'Kebaplar', href: '#kebabs' },
-    { name: 'Çorbalar', href: '#soups' },
+    { name: 'Dürümler', href: '#wraps' },
     { name: 'Ekmek Arası', href: '#sandwiches' },
-    { name: 'Paket Servis', href: '#delivery' },
+    { name: 'Salata ve Çorbalar', href: '#soups' },
+    { name: 'Sipariş Ver', href: '#order' },
   ];
 
   return (

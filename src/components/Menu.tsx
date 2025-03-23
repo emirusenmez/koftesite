@@ -58,7 +58,29 @@ const kebapItems: MenuItem[] = [
   },
 ];
 
-const corbaItems: MenuItem[] = [
+const durumItems: MenuItem[] = [
+  {
+    title: 'ADANA DÜRÜM',
+    image: '/images/adana-durum.jpg',
+    description: 'AÇIKLAMA',
+    weight: '200g',
+    price: '180₺',
+  },
+  // ... diğer dürüm çeşitleri
+];
+
+const ekmekArasiItems: MenuItem[] = [
+  {
+    title: 'KÖFTE EKMEĞİ',
+    image: '/images/kofte-ekmek.jpg',
+    description: 'AÇIKLAMA',
+    weight: '150g',
+    price: '160₺',
+  },
+  // ... diğer ekmek arası çeşitleri
+];
+
+const salataCorbaItems: MenuItem[] = [
   {
     title: 'MERCİMEK ÇORBASI',
     image: '/images/mercimek.jpg',
@@ -66,13 +88,7 @@ const corbaItems: MenuItem[] = [
     weight: '300ml',
     price: '80₺',
   },
-  {
-    title: 'PAÇA ÇORBASI',
-    image: '/images/paca.jpg',
-    description: 'AÇIKLAMA',
-    weight: '300ml',
-    price: '100₺',
-  },
+  // ... diğer çorba ve salata çeşitleri
 ];
 
 interface MenuSectionProps {
@@ -126,7 +142,9 @@ export default function Menu() {
     <div className="bg-black text-white">
       <MenuSection title="IZGARALAR" items={izgaraItems} id="grills" />
       <MenuSection title="KEBAPLAR" items={kebapItems} id="kebabs" />
-      <MenuSection title="ÇORBALAR" items={corbaItems} id="soups" />
+      <MenuSection title="DÜRÜMLER" items={durumItems} id="wraps" />
+      <MenuSection title="EKMEK ARASI" items={ekmekArasiItems} id="sandwiches" />
+      <MenuSection title="SALATA VE ÇORBALAR" items={salataCorbaItems} id="soups" />
     </div>
   );
 } 
